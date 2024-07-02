@@ -7,7 +7,6 @@ export default function Header() {
   const { mode, setMode } = useTheme();
   const pathname = useLocation().pathname;
   const subject = pathname.split("/")[1];
-  console.log(subject);
 
   const handleTheme = () => {
     if (mode === "light") {
@@ -22,9 +21,9 @@ export default function Header() {
   return (
     <header>
       <Container>
-        <div>
+        <SubjectWrapper>
           {subject && (
-            <div>
+            <SubjectContainer>
               <img
                 src={`/assets/images/${subject.toLowerCase()}.svg`}
                 alt={`${subject} Icon`}
@@ -33,10 +32,10 @@ export default function Header() {
                 loading="lazy"
               />
               <span>{subject}</span>
-            </div>
+            </SubjectContainer>
           )}
-        </div>
-        <div className="flex-between gap-2 lg:gap-4">
+        </SubjectWrapper>
+        <SwitchContainer>
           <img
             src={`/assets/images/icon-sun-${
               mode === "light" ? "dark" : "light"
@@ -45,7 +44,7 @@ export default function Header() {
             height={16}
             alt="Sun"
           />
-          <Switch toggleTheme={handleTheme} />
+          <Switch mode={mode} toggleTheme={handleTheme} />
           <img
             src={`/assets/images/icon-moon-${
               mode === "light" ? "dark" : "light"
@@ -54,7 +53,7 @@ export default function Header() {
             height={16}
             alt="Sun"
           />
-        </div>
+        </SwitchContainer>
       </Container>
     </header>
   );
@@ -71,4 +70,27 @@ const Container = styled.div`
   @media (min-width: 1024px) {
     padding: 6.063rem 8.75rem 5.438rem;
   }
+`;
+
+const SubjectContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: start;
+`;
+
+const SwitchContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+
+  img {
+    width: 16px;
+    height: 16px;
+  }
+`;
+
+const SubjectWrapper = styled.div`
+  height: 2.5rem;
+  width: 10.438rem;
 `;

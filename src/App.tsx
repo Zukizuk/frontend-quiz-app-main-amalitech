@@ -11,8 +11,10 @@ import { useTheme } from "./context/ThemeProvider";
 
 const lightTheme = {
   bg: "var(--light-grey)",
+  itemBG: "var(--white)",
   fg: "var(--dark-navy)",
   bgImg: "light",
+  textSecondary: "var(--grey-navy)",
   colors: {
     html: "#FFF1E9",
     css: "#E0FDEF",
@@ -23,8 +25,16 @@ const lightTheme = {
 
 const darkTheme = {
   bg: "var(--dark-navy)",
+  itemBG: "var(--navy)",
   fg: "var(--white)",
   bgImg: "dark",
+  textSecondary: "var(--light-bluish)",
+  colors: {
+    html: "#FFF1E9",
+    css: "#E0FDEF",
+    javascript: "#EBF0FF",
+    accessibility: "#F6E7FF",
+  },
 };
 
 function App() {
@@ -62,7 +72,7 @@ const GlobalStyle = createGlobalStyle`
   
   html {
   scroll-behavior: smooth;
-  line-height: 1.15;
+  line-height: 1.5;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: #0000;
 }
@@ -155,9 +165,6 @@ h2,
 h3 {
   font-weight: 600;
 }
-button {
-  all: unset;
-}
 [type="button"],
 [type="reset"],
 [type="submit"],
@@ -184,7 +191,6 @@ label[for] {
     flex-direction: column;
     background-color: ${(props) => `rgb(${props.theme.bg})`};
     color: ${(props) => `rgb(${props.theme.fg})`};
-    line-height: 1.5;
     background-image: ${(props) =>
       `url('/assets/images/pattern-background-mobile-${props.theme.bgImg}.svg')`};
     background-size: cover;
@@ -209,6 +215,7 @@ label[for] {
     padding-top: 2rem;
     @media (min-width: 768px) {
       padding-inline: 4rem;
+      padding-top: 0;
     }
     @media (min-width: 1024px) {
       padding-inline: 8.75rem;
