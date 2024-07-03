@@ -4,6 +4,7 @@ import Result from "../components/result";
 import styled from "styled-components";
 import Data from "../data/data.json";
 import { useLocation } from "react-router-dom";
+import NotFound from "./not-found";
 
 export default function Subject() {
   const pathname = useLocation().pathname;
@@ -14,19 +15,14 @@ export default function Subject() {
   const quiz = Data.quizzes.find(
     (quiz) => quiz.title.toLowerCase() === subject.toLowerCase()
   );
-  if (quiz === undefined) return; // to avoid typescript warning
+  if (quiz === undefined) return <NotFound />; // to avoid typescript warning
 
   return (
     <StyledArticle>
       {showResult ? (
         <Result subject={subject} score={score} />
       ) : (
-        <Quiz
-          setShowResult={setShowResult}
-          score={score}
-          setScore={setScore}
-          quiz={quiz}
-        />
+        <Quiz setShowResult={setShowResult} setScore={setScore} quiz={quiz} />
       )}
     </StyledArticle>
   );

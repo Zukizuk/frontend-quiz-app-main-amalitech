@@ -8,6 +8,7 @@ import {
 } from "styled-components";
 import React from "react";
 import { useTheme } from "./context/ThemeProvider";
+import NotFound from "./pages/not-found";
 
 const lightTheme = {
   bg: "var(--light-grey)",
@@ -53,7 +54,7 @@ function App() {
           {/* Routes go here */}
           <Route path="/" element={<Home />} />
           <Route path="/:subject" element={<Subject />} />
-          <Route path="*" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
     </StyledProvider>

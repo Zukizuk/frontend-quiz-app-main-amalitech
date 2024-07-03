@@ -3,12 +3,15 @@ import { useTheme } from "../context/ThemeProvider";
 import { useLocation } from "react-router-dom";
 import Switch from "./switch";
 import { IconContainer, Title } from "../styles";
+import Data from "../data/data.json";
 
 export default function Header() {
   const { mode, setMode } = useTheme();
   const pathname = useLocation().pathname;
-  const subject = pathname.split("/")[1];
-
+  const quizTitles = Data.quizzes.map((quiz) => quiz.title.toLowerCase());
+  const subject = quizTitles.filter(
+    (title) => pathname.replace("/", "") === title
+  )[0];
   const handleTheme = () => {
     if (mode === "light") {
       setMode("dark");
