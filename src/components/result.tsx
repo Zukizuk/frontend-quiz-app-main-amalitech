@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { IconContainer, StyledButton, Title } from "../styles";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 interface ResultProps {
   subject: string;
@@ -18,7 +19,11 @@ export default function Result({ subject, score }: ResultProps) {
         </Heading>
       </div>
       <Container>
-        <ScoreCard>
+        <ScoreCard
+          as={motion.div}
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
           <Score>
             <IconContainer as="span" subject={subject}>
               <img

@@ -3,6 +3,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { ListItem, SmallText, StyledButton } from "../styles";
 import Progress from "./progress";
+import { motion } from "framer-motion";
 
 interface QuizProps {
   setShowResult: (value: boolean) => void;
@@ -92,6 +93,10 @@ export default function Quiz({ setShowResult, quiz, setScore }: QuizProps) {
                 locked={locked}
                 isCorrect={isCorrect}
                 subject={quiz.title}
+                as={motion.li}
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
               >
                 <OptionLabel
                   isSelected={isSelected}

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { IconContainer, ListItem, SmallText } from "../styles";
 import styled from "styled-components";
 import Data from "../data/data.json";
+import { motion } from "framer-motion";
 
 export default function Home() {
   const subjects = Data.quizzes.map((quiz) => quiz.title);
@@ -14,8 +15,14 @@ export default function Home() {
         <SmallText>Pick a subject to get started.</SmallText>
       </TextContainer>
       <List>
-        {subjects.map((subject) => (
-          <StyledListItem key={subject}>
+        {subjects.map((subject, index) => (
+          <StyledListItem
+            key={subject}
+            as={motion.li}
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1 }}
+          >
             <IconContainer subject={subject}>
               <img
                 src={`/assets/images/${subject.toLowerCase()}.svg`}
