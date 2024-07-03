@@ -21,6 +21,9 @@ const lightTheme = {
     javascript: "#EBF0FF",
     accessibility: "#F6E7FF",
   },
+  filter: "drop-shadow(0 16px 40px rgba(var(--light-shadow-color), 0.14))",
+  uniqueFilter:
+    "drop-shadow(0 16px 40px rgba(var(--light-shadow-color), 0.14))",
 };
 
 const darkTheme = {
@@ -35,6 +38,8 @@ const darkTheme = {
     javascript: "#EBF0FF",
     accessibility: "#F6E7FF",
   },
+  filter: "drop-shadow(0 16px 40px rgba(var(--dark-shadow-color), 0.14))",
+  uniqueFilter: "drop-shadow(0 4px 4px rgba(0,0,0, 0.25))",
 };
 
 function App() {
@@ -68,6 +73,8 @@ const GlobalStyle = createGlobalStyle`
     --white: 255, 255, 255;
     --light-bluish: 171, 193, 225;
     --light-grey: 244, 246, 250;
+    --dark-shadow-color: 49 ,62 ,81; 
+    --light-shadow-color: 143, 160, 193;
   }
   
   html {

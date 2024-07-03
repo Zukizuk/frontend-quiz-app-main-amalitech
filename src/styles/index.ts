@@ -19,6 +19,7 @@ export const ListItem = styled.li`
   font-size: 1.125rem;
   font-weight: 500;
   cursor: pointer;
+  filter: ${(props) => props.theme.filter};
   @media (min-width: 768px) {
     gap: 2rem;
     border-radius: 24px;
@@ -83,6 +84,7 @@ export const StyledButton = styled.button`
   justify-content: center;
   align-items: center;
   transition: all 0.3s ease-in-out;
+  filter: ${(props) => props.theme.filter};
   @media (min-width: 768px) {
     position: relative;
     height: 92px;

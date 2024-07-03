@@ -10,7 +10,7 @@ interface ResultProps {
 export default function Result({ subject, score }: ResultProps) {
   return (
     <>
-      <div>
+      <div style={{ flexShrink: "0" }}>
         <Heading>
           Quiz completed
           <br />
@@ -109,4 +109,5 @@ const SmallText = styled.span`
 
 const StyledLink = styled(StyledButton)`
   text-decoration: none;
+  filter: ${(props) => props.theme.uniqueFilter};
 `;

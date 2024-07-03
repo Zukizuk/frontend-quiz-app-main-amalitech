@@ -5,6 +5,7 @@ import { ListItem, SmallText, StyledButton } from "../styles";
 import Progress from "./progress";
 
 interface QuizProps {
+  score: number;
   setShowResult: (value: boolean) => void;
   setScore: React.Dispatch<React.SetStateAction<number>>;
   quiz: {
@@ -18,7 +19,12 @@ interface QuizProps {
   };
 }
 
-export default function Quiz({ setShowResult, quiz, setScore }: QuizProps) {
+export default function Quiz({
+  setShowResult,
+  quiz,
+  setScore,
+  score,
+}: QuizProps) {
   const optionLabels = ["A", "B", "C", "D"];
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
   const [locked, setLocked] = React.useState(false);
@@ -27,6 +33,7 @@ export default function Quiz({ setShowResult, quiz, setScore }: QuizProps) {
   );
   const [isSubmitted, setIsSubmitted] = React.useState(false);
   const [showError, setShowError] = React.useState(false);
+
   const handleChoice = (choice: string) => {
     if (locked) return;
     setShowError(false);
@@ -48,6 +55,7 @@ export default function Quiz({ setShowResult, quiz, setScore }: QuizProps) {
     }
     if (currentQuestion === quiz.questions.length - 1) {
       setShowResult(true);
+      localStorage.removeItem(quiz.title);
     } else {
       setCurrentQuestion((prev) => prev + 1);
       setSelectedAnswer(null);
@@ -55,6 +63,42 @@ export default function Quiz({ setShowResult, quiz, setScore }: QuizProps) {
       setIsSubmitted(false);
     }
   };
+  const saveToLocalStorage = React.useCallback(() => {
+    const state = {
+      currentQuestion,
+      score,
+      selectedAnswer,
+      isSubmitted,
+      locked,
+    };
+    localStorage.setItem(quiz.title, JSON.stringify(state));
+  }, [currentQuestion, score, selectedAnswer, isSubmitted, locked, quiz.title]);
+
+  const loadFromLocalStorage = React.useCallback(() => {
+    const savedState = localStorage.getItem(quiz.title);
+    if (savedState) {
+      const state = JSON.parse(savedState);
+      setCurrentQuestion(state.currentQuestion);
+      setScore(state.score);
+      setSelectedAnswer(state.selectedAnswer);
+      setIsSubmitted(state.isSubmitted);
+      setLocked(state.locked);
+    }
+  }, [quiz.title, setScore]);
+
+  React.useEffect(() => {
+    loadFromLocalStorage();
+  }, [loadFromLocalStorage]);
+
+  React.useEffect(() => {
+    saveToLocalStorage();
+  }, [
+    currentQuestion,
+    selectedAnswer,
+    isSubmitted,
+    locked,
+    saveToLocalStorage,
+  ]);
   return (
     <>
       <Root>
