@@ -3,6 +3,9 @@
 <div align="center">
 
   <img src="https://www.frontendmentor.io/static/images/logo-mobile.svg" alt="frontendmentor" width="80">
+  <br />
+  <br />
+  <img src="https://media.licdn.com/dms/image/C4E1BAQHdIhom-gfW1g/company-background_10000/0/1585230439374/amalitech_cover?e=2147483647&v=beta&t=GSJ9VdveiU4AQ2ig4XY-rWPXreytqFgvghx-qY_x4tI" alt="Amalitech" width="200">
 
   <h2 align="center">Frontend Quiz App With Theme Switcher</h2>
   <h3 align="center">React + TypeScript + Styled-Components</h3>
@@ -10,7 +13,7 @@
     <a href="https://www.frontendmentor.io/"><strong>Frontend Mentor Challenge</strong></a>
     <br />
     <br />
-    <a href="https://github.com/Zukizuk/frontend-quiz-app-main-amalitech">View Demo</a>
+    <a href="https://frontend-quiz-app-main-amalitech.vercel.app/">View Demo</a>
     ·
     <a href="https://github.com/Zukizuk/frontend-quiz-app-main-amalitech" target="_blank">Report Bug</a>
     ·
@@ -72,8 +75,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Github Repo](https://github.com/Zukizuk/frontend-quiz-app-main-amalitech)
+- Live Site URL: [Live](https://frontend-quiz-app-main-amalitech.vercel.app/)
 
 ## My process
 
