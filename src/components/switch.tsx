@@ -13,6 +13,7 @@ export default function Switch({ toggleTheme, mode }: Props) {
       role="switch"
       aria-checked={mode === "dark"}
       onClick={toggleTheme}
+      aria-label="Toggle dark mode"
     >
       <Thumb data-state={mode === "dark" ? "checked" : "unchecked"}></Thumb>
     </StyledSwitch>
