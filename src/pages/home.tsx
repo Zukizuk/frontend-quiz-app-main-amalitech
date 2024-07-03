@@ -57,6 +57,7 @@ const TextContainer = styled.div`
   flex-direction: column;
   gap: 1rem;
   @media (min-width: 1024px) {
+    flex-shrink: 0;
     gap: 3rem;
   }
 `;

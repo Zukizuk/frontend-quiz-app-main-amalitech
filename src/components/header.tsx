@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useTheme } from "../context/ThemeProvider";
 import { useLocation } from "react-router-dom";
 import Switch from "./switch";
-import { IconContainer } from "../styles";
+import { IconContainer, Title } from "../styles";
 
 export default function Header() {
   const { mode, setMode } = useTheme();
@@ -94,31 +94,14 @@ const SwitchContainer = styled.div`
   img {
     width: 16px;
     height: 16px;
+    @media (min-width: 768px) {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 `;
 
 const SubjectWrapper = styled.div`
   height: 2.5rem;
   width: 10.438rem;
-`;
-
-interface TitleProps {
-  subject: string;
-}
-
-const Title = styled.span<TitleProps>`
-  font-size: 1.125rem;
-  font-weight: 500;
-  line-height: 28px;
-  ${(props) =>
-    ["html", "css"].includes(props.subject.toLowerCase())
-      ? `
-    text-transform: uppercase;
-  `
-      : `
-    text-transform: capitalize;
-  `}
-  @media (min-width: 768px) {
-    font-size: 28px;
-  }
 `;

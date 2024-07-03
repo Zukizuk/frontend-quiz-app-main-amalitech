@@ -18,6 +18,7 @@ export const ListItem = styled.li`
   padding: 0.75rem;
   font-size: 1.125rem;
   font-weight: 500;
+  cursor: pointer;
   @media (min-width: 768px) {
     gap: 2rem;
     border-radius: 24px;
@@ -46,5 +47,61 @@ export const IconContainer = styled.div<IconContainerProps>`
   @media (min-width: 768px) {
     width: 3.5rem;
     height: 3.5rem;
+  }
+`;
+
+interface TitleProps {
+  subject: string;
+}
+
+export const Title = styled.span<TitleProps>`
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 28px;
+  ${(props) =>
+    ["html", "css"].includes(props.subject.toLowerCase())
+      ? `
+    text-transform: uppercase;
+  `
+      : `
+    text-transform: capitalize;
+  `}
+  @media (min-width: 768px) {
+    font-size: 28px;
+  }
+`;
+export const StyledButton = styled.button`
+  height: 56px;
+  border-radius: 12px;
+  background-color: rgb(var(--purple));
+  padding: 0.75rem;
+  font-family: inherit;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: white;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  @media (min-width: 768px) {
+    position: relative;
+    height: 92px;
+    border-radius: 24px;
+    padding: 2rem;
+    font-size: 1.75rem;
+    &::after {
+      content: "";
+      position: absolute;
+      border-radius: inherit;
+      inset: 0;
+      background-color: white;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+    &:hover {
+      &::after {
+        opacity: 0.5;
+      }
+    }
   }
 `;

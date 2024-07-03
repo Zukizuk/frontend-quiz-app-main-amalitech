@@ -22,6 +22,14 @@ const StyledSwitch = styled.button`
   background-color: rgb(var(--purple));
   border-radius: 9999px;
   cursor: pointer;
+  @media (min-width: 768px) {
+    height: 1.75rem;
+    width: 3rem;
+  }
+  @media (min-width: 1024px) {
+    width: 48px;
+    height: 28px;
+  }
 `;
 
 const Thumb = styled.span`
@@ -32,7 +40,14 @@ const Thumb = styled.span`
   display: block;
   transform: translateX(0);
   transition: transform 0.2s;
+  @media (min-width: 768px) {
+    height: 20px;
+    width: 20px;
+  }
   &[data-state="true"] {
     transform: translateX(0.8rem);
+    @media (min-width: 768px) {
+      transform: translateX(1.25rem);
+    }
   }
 `;

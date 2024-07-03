@@ -19,7 +19,7 @@ export default function Subject() {
   return (
     <StyledArticle>
       {showResult ? (
-        <Result />
+        <Result subject={subject} score={score} />
       ) : (
         <Quiz setShowResult={setShowResult} setScore={setScore} quiz={quiz} />
       )}

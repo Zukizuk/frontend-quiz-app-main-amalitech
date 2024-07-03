@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import styled, { css } from "styled-components";
-import { ListItem, SmallText } from "../styles";
+import { ListItem, SmallText, StyledButton } from "../styles";
 import Progress from "./progress";
 
 interface QuizProps {
@@ -18,7 +18,7 @@ interface QuizProps {
   };
 }
 
-export default function Quiz({ setShowResult, quiz }: QuizProps) {
+export default function Quiz({ setShowResult, quiz, setScore }: QuizProps) {
   const optionLabels = ["A", "B", "C", "D"];
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
   const [locked, setLocked] = React.useState(false);
@@ -90,6 +90,7 @@ export default function Quiz({ setShowResult, quiz }: QuizProps) {
                 isSubmitted={isSubmitted}
                 locked={locked}
                 isCorrect={isCorrect}
+                subject={quiz.title}
               >
                 <OptionLabel
                   isSelected={isSelected}
@@ -186,6 +187,7 @@ interface OptionProps {
   isSubmitted: boolean;
   locked: boolean;
   isCorrect: boolean;
+  subject?: string;
 }
 const Option = styled(ListItem)<OptionProps>`
   ${(props) =>
@@ -200,6 +202,16 @@ const Option = styled(ListItem)<OptionProps>`
     css`
       outline: 3px solid
         ${props.isCorrect ? "rgb(var(--green))" : "rgb(var(--red))"};
+    `}
+    ${(props) =>
+    !props.isSelected &&
+    css`
+      &:hover div:first-of-type {
+        background-color: ${props.theme.colors[
+          props.subject?.toLowerCase() ?? ""
+        ] || props.theme.itemBG};
+        color: rgb(var(--purple));
+      }
     `}
 `;
 const OptionLabel = styled.div<OptionProps>`
@@ -257,30 +269,7 @@ const IconWrapper = styled.div`
     height: 2.5rem;
   }
 `;
-const StyledButton = styled.button`
-  height: 56px;
-  border-radius: 12px;
-  background-color: rgb(var(--purple));
-  padding: 0.75rem;
-  font-family: inherit;
-  font-size: 1.125rem;
-  font-weight: 500;
-  color: white;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.3s ease-in-out;
-  &:hover {
-    background-color: rgba(var(--purple), 0.9);
-  }
 
-  @media (min-width: 768px) {
-    height: 92px;
-    border-radius: 24px;
-    padding: 2rem;
-    font-size: 1.75rem;
-  }
-`;
 const ErrorMessage = styled.p`
   position: absolute;
   bottom: -3.5rem;
