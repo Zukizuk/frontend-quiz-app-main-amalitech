@@ -8,8 +8,13 @@ interface Props {
 
 export default function Switch({ toggleTheme, mode }: Props) {
   return (
-    <StyledSwitch data-state={mode === "dark"} onClick={toggleTheme}>
-      <Thumb data-state={mode === "dark"}></Thumb>
+    <StyledSwitch
+      data-state={mode === "dark" ? "checked" : "unchecked"}
+      role="switch"
+      aria-checked={mode === "dark"}
+      onClick={toggleTheme}
+    >
+      <Thumb data-state={mode === "dark" ? "checked" : "unchecked"}></Thumb>
     </StyledSwitch>
   );
 }
@@ -44,7 +49,7 @@ const Thumb = styled.span`
     height: 20px;
     width: 20px;
   }
-  &[data-state="true"] {
+  &[data-state="checked"] {
     transform: translateX(0.8rem);
     @media (min-width: 768px) {
       transform: translateX(1.25rem);

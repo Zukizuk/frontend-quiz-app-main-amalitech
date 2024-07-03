@@ -64,6 +64,7 @@ function App() {
 export default App;
 
 const GlobalStyle = createGlobalStyle`
+/* @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap'); */
   :root {
     --purple: 167, 41, 245;
     --red: 238, 84, 84;
