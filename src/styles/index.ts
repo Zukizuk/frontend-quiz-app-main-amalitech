@@ -28,3 +28,23 @@ export const ListItem = styled.li`
     font-size: 1.75rem;
   }
 `;
+
+interface IconContainerProps {
+  subject: string;
+}
+
+export const IconContainer = styled.div<IconContainerProps>`
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 4px;
+  flex-shrink: 0;
+  background-color: ${(props) =>
+    props.theme.colors[props.subject.toLowerCase()] || props.theme.itemBG};
+  @media (min-width: 768px) {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+`;

@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { ListItem, SmallText } from "../styles";
+import { IconContainer, ListItem, SmallText } from "../styles";
 import styled from "styled-components";
+import Data from "../data/data.json";
 
 export default function Home() {
-  const subjects = ["HTML", "CSS", "Javascript", "Accessibility"];
+  const subjects = Data.quizzes.map((quiz) => quiz.title);
   return (
     <Section>
       <TextContainer>
@@ -14,8 +15,8 @@ export default function Home() {
       </TextContainer>
       <List>
         {subjects.map((subject) => (
-          <ListItem key={subject}>
-            <div>
+          <StyledListItem key={subject}>
+            <IconContainer subject={subject}>
               <img
                 src={`/assets/images/${subject.toLowerCase()}.svg`}
                 alt={`${subject} Image`}
@@ -23,12 +24,12 @@ export default function Home() {
                 height={40}
                 loading="lazy"
               />
-            </div>
+            </IconContainer>
             <p>{subject}</p>
-            <Link to={`/${subject.toLowerCase()}`}>
+            <StyledLink to={`/${subject.toLowerCase()}`}>
               <span className="sr-only">{subject}</span>
-            </Link>
-          </ListItem>
+            </StyledLink>
+          </StyledListItem>
         ))}
       </List>
     </Section>
@@ -89,4 +90,13 @@ const List = styled.ul`
   @media (min-width: 768px) {
     gap: 1.5rem;
   }
+`;
+
+const StyledListItem = styled(ListItem)`
+  position: relative;
+`;
+
+const StyledLink = styled(Link)`
+  position: absolute;
+  inset: 0;
 `;

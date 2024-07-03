@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useTheme } from "../context/ThemeProvider";
 import { useLocation } from "react-router-dom";
 import Switch from "./switch";
+import { IconContainer } from "../styles";
 
 export default function Header() {
   const { mode, setMode } = useTheme();
@@ -24,14 +25,16 @@ export default function Header() {
         <SubjectWrapper>
           {subject && (
             <SubjectContainer>
-              <img
-                src={`/assets/images/${subject.toLowerCase()}.svg`}
-                alt={`${subject} Icon`}
-                width={40}
-                height={40}
-                loading="lazy"
-              />
-              <span>{subject}</span>
+              <IconContainer subject={subject}>
+                <img
+                  src={`/assets/images/${subject.toLowerCase()}.svg`}
+                  alt={`${subject} Icon`}
+                  width={40}
+                  height={40}
+                  loading="lazy"
+                />
+              </IconContainer>
+              <Title subject={subject}>{subject}</Title>
             </SubjectContainer>
           )}
         </SubjectWrapper>
@@ -76,6 +79,10 @@ const SubjectContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: start;
+  gap: 1rem;
+  @media (min-width: 768px) {
+    gap: 1.5rem;
+  }
 `;
 
 const SwitchContainer = styled.div`
@@ -93,4 +100,25 @@ const SwitchContainer = styled.div`
 const SubjectWrapper = styled.div`
   height: 2.5rem;
   width: 10.438rem;
+`;
+
+interface TitleProps {
+  subject: string;
+}
+
+const Title = styled.span<TitleProps>`
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 28px;
+  ${(props) =>
+    ["html", "css"].includes(props.subject.toLowerCase())
+      ? `
+    text-transform: uppercase;
+  `
+      : `
+    text-transform: capitalize;
+  `}
+  @media (min-width: 768px) {
+    font-size: 28px;
+  }
 `;

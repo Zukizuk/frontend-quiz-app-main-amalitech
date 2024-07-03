@@ -59,7 +59,7 @@ export default App;
 
 const GlobalStyle = createGlobalStyle`
   :root {
-    --purple: 167, 41, 153;
+    --purple: 167, 41, 245;
     --red: 238, 84, 84;
     --dark-navy: 49, 62, 81;
     --navy: 59, 77, 102;
