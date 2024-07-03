@@ -26,7 +26,7 @@
   <!-- Profile -->
   <a href="https://www.frontendmentor.io/profile/Zukizuk">
     <img src="https://img.shields.io/badge/Marzuk%20Sanni-profile%20?style=for-the-badge&logo=frontendmentor&label=Profile&color=07043B
-    " alt="Marzuk Profile">
+    " alt="Marzuk Profile">&nbsp;
   </a>
   <!-- Status -->
     <a href="#">
@@ -101,33 +101,20 @@ Users should be able to:
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+This project was a fantastic learning experience that significantly enhanced my web development skills. Through building this quiz app, I dove deep into the css-in-js library, styled-components, and I must say it's truly impressive. Styled-components offers remarkable control over styling, making it easy to implement dynamic styles based on component props or app state. It streamlined my workflow and made my components more self-contained and reusable.
 
-To see how you can add code snippets, see below:
+Additionally, this project marked my first serious foray into using Figma and It was really a great learning experience. It was fun to develop a website with a figma design. I have always wanted to work with a figma design on projects like this from frontend mentor to attempt making a pixel perfect solution which I hope I have been able to achieve it in this project.
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
+A styled-components powerful feature
 
 ```css
-.proud-of-this-css {
-  color: papayawhip;
-}
+background-color: ${(props) =>
+    props.theme.colors[props.subject.toLowerCase()]};
 ```
-
-```js
-const proudOfThisFunc = () => {
-  console.log("🎉");
-};
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+Though I was able to complete this project with styled-component I see that there are still concepts under it that I haven't been able to completely grasp so I intend to learn more about this amazing library and add it to my repertoire for styling. I also intend to familiarize myself more with figma as it is indeed a great tool to work with.
 
 ### Useful resources
 
