@@ -25,8 +25,7 @@
 <div align="center">
   <!-- Profile -->
   <a href="https://www.frontendmentor.io/profile/Zukizuk">
-    <img src="https://img.shields.io/badge/Marzuk%20Sanni-profile%20?style=for-the-badge&logo=frontendmentor&label=Profile&color=07043B
-    " alt="Marzuk Profile">&nbsp;
+    <img src="https://img.shields.io/badge/Marzuk%20Sanni-profile%20?style=for-the-badge&logo=frontendmentor&label=Profile&color=07043B" alt="Marzuk Profile">&nbsp;
   </a>
   <!-- Status -->
     <a href="#">
@@ -72,6 +71,21 @@ Users should be able to:
 ### Screenshot
 
 ![](./screenshot.jpg)
+
+<br>
+
+## Pagespeed Insights Score:
+
+- |                                                                                                                                                                          |
+  | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+  |                                        <b>Overall score 97% for Both Mobile & Desktop</b><br>(Below score is for desktop devices)                                        |
+  |                                                                                                                                                                          |
+  |                                                 <img src='public/assets/images/page-speed-insight.png' alt='Scoreboard'>                                                 |
+  |                                                                                                                                                                          |
+  | Check out [**Pagespeed Insights**](https://pagespeed.web.dev/analysis/https-frontend-quiz-app-main-amalitech-vercel-app/a749x9q39x?form_factor=mobile) to get live score |
+  |                                                                                                                                                                          |
+
+<br>
 
 ### Links
 
