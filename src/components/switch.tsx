@@ -28,6 +28,11 @@ const StyledSwitch = styled.button`
   background-color: rgb(var(--purple));
   border-radius: 9999px;
   cursor: pointer;
+  scale: 1;
+  transition: scale 0.2s;
+  &:hover {
+    scale: 1.05;
+  }
   @media (min-width: 768px) {
     height: 1.75rem;
     width: 3rem;

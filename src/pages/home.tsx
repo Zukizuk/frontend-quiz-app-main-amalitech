@@ -102,6 +102,11 @@ const List = styled.ul`
 
 const StyledListItem = styled(ListItem)`
   position: relative;
+  scale: 1;
+  transition: scale 0.2s;
+  &:hover {
+    scale: 1.03;
+  }
 `;
 
 const StyledLink = styled(Link)`
