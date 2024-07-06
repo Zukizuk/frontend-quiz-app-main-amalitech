@@ -68,6 +68,12 @@ Users should be able to:
 - Navigate the entire app only using their keyboard
 - **Bonus**: Change the app's theme between light and dark
 
+### Added Features
+
+- Determine the theme of the app based on the user's system
+- Added a slight animation with framer-motion
+- Added a not found page to handle exceptional cases
+
 ### Screenshot
 
 ![](./screenshot.jpg)
