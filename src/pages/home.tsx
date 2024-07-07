@@ -9,10 +9,22 @@ export default function Home() {
   return (
     <Section>
       <TextContainer>
-        <WelcomeHeading>
+        <WelcomeHeading
+          as={motion.h1}
+          initial={{ opacity: 0, y: -500 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, type: "tween" }}
+        >
           Welcome to the <EmphasisText>Frontend Quiz!</EmphasisText>
         </WelcomeHeading>
-        <SmallText>Pick a subject to get started.</SmallText>
+        <SmallText
+          as={motion.p}
+          initial={{ opacity: 0, y: 500 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, type: "tween" }}
+        >
+          Pick a subject to get started.
+        </SmallText>
       </TextContainer>
       <List>
         {subjects.map((subject, index) => (

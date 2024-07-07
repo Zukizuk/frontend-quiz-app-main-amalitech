@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
 
@@ -8,6 +9,10 @@ export default function Progress({ value }: { value: number }) {
       aria-valuenow={value}
       aria-valuemin={10}
       aria-valuemax={100}
+      as={motion.div}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.6 }}
     >
       <Indicator value={value}></Indicator>
     </Root>

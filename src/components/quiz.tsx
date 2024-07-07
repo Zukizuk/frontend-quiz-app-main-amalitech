@@ -60,7 +60,12 @@ export default function Quiz({ setShowResult, quiz, setScore }: QuizProps) {
   return (
     <>
       <Root>
-        <Question>
+        <Question
+          as={motion.div}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+        >
           <SmallText>
             Question {currentQuestion + 1} of {quiz.questions.length}
           </SmallText>

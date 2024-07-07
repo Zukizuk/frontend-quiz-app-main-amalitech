@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import Switch from "./switch";
 import { IconContainer, Title } from "../styles";
 import Data from "../data/data.json";
+import { motion } from "framer-motion";
 
 export default function Header() {
   const { mode, setMode } = useTheme();
@@ -27,7 +28,11 @@ export default function Header() {
       <Container>
         <SubjectWrapper>
           {subject && (
-            <SubjectContainer>
+            <SubjectContainer
+              as={motion.div}
+              initial={{ opacity: 0, x: -300 }}
+              animate={{ opacity: 1, x: 0 }}
+            >
               <IconContainer subject={subject}>
                 <img
                   src={`/assets/images/${subject.toLowerCase()}.svg`}
@@ -41,7 +46,11 @@ export default function Header() {
             </SubjectContainer>
           )}
         </SubjectWrapper>
-        <SwitchContainer>
+        <SwitchContainer
+          as={motion.div}
+          initial={{ opacity: 0, x: 300 }}
+          animate={{ opacity: 1, x: 0 }}
+        >
           <img
             src={`/assets/images/icon-sun-${
               mode === "light" ? "dark" : "light"
